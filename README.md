@@ -2,9 +2,9 @@
 
 > LLM 驱动的多人在线生活模拟游戏 · 21 世纪 RPG Maker 风格
 
-| 项目 Project | 简介 Description | 状态 Status |
+| 项目 | 简介 | 状态 |
 |---|---|---|
-| **AI Town**<br>LLM 驱动的在线生活模拟游戏 | Go + Python 多人在线生活模拟游戏，RPG Maker 风格。每个角色为独立 LLM Agent (DeepSeekV4-pro)，1000×1000 Tile+Plot 双层地图，实时制世界，NPC 全量心跳模拟，货币+材料+证书经济，寿命制+子嗣继承，玩家议会立法。<br>Go + Python multiplayer life-sim. Each character = independent LLM agent. 1000×1000 tile+plot map, real-time world, ~1500 NPC heartbeat simulation, economy with currency+materials+certificates, lifespan+heir inheritance, player parliament legislation. | 🏗️ Design |
+| **AI Town** | Go + Python 多人在线生活模拟游戏，RPG Maker 风格。每个角色为独立 LLM Agent (DeepSeekV4-pro)，1000×1000 Tile+Plot 双层地图，实时制世界，NPC 全量心跳模拟，货币+材料+证书三层经济，寿命制+子嗣继承，玩家议会立法。 | 🏗️ Design |
 
 [![Status](https://img.shields.io/badge/status-design-7B61FF)](docs/superpowers/specs/2026-06-17-ai-town-design.md)
 [![Python](https://img.shields.io/badge/Python-Agent_服务-3776AB?logo=python)](https://www.python.org/)
@@ -12,6 +12,8 @@
 [![Phaser](https://img.shields.io/badge/Phaser.js-游戏渲染-FF6C37)](https://phaser.io/)
 [![React](https://img.shields.io/badge/React-UI-61DAFB?logo=react)](https://react.dev/)
 [![DeepSeek](https://img.shields.io/badge/LLM-DeepSeekV4--pro-4B88C2)](https://www.deepseek.com/)
+
+[English](README_EN.md)
 
 ---
 
@@ -27,7 +29,7 @@
 | **活的世界** | ~1500 个 NPC agent 拥有自己的工作、家庭、社交圈 |
 | **人机协作** | 设定高层目标，agent 自主规划执行，随时介入 |
 | **透明 AI** | 实时查看 agent 的感知 → 规划 → 决策 → 后果 |
-| **社会涌现** | 法律由玩家议会+ NPC 共同制定，随社会发展演变 |
+| **社会涌现** | 法律由玩家议会 + NPC 共同制定，随社会发展演变 |
 
 ---
 
