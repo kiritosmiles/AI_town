@@ -8,8 +8,8 @@
 
 | # | Spike | 目录 | 状态 | 目标 |
 |---|---|---|---|---|
-| S1 | Godot 4 + Python gRPC Echo | `s1-grpc/` | 🔲 | 本机通信延迟 < 50ms |
-| S2 | DeepSeek API Agent 决策延迟 | `s2-llm-latency/` | 🔲 | 端到端 P50 < 10s |
+| S1 | Godot 4 + Python gRPC Echo | `s1-grpc/` | ✅ | 本机通信延迟 < 50ms |
+| S2 | DeepSeek API Agent 决策延迟 | `s2-llm-latency/` | ✅ | 端到端 P50 < 10s |
 | S3 | Godot Tilemap 分块渲染 | (待 S1 通过后) | 🔲 | 1000×1000 分块 60 FPS |
 
 ---
@@ -61,10 +61,10 @@ python test_latency.py
 
 | Spike | 日期 | P50 | P95 | 结论 | 备注 |
 |---|---|---|---|---|---|
-| S1 gRPC | | | | | |
-| S1 HTTP Bridge | | | | | |
-| S2 DeepSeek | | | | | |
-| S3 Tilemap | | | | | |
+| S1 gRPC | 2026-06-27 | 0.3ms | — | ✅ PASS | 远超预期 (目标<50ms) |
+| S1 HTTP Bridge | — | — | — | — | 等 Godot 实测 |
+| S2 DeepSeek | 2026-06-27 | 1449ms | 3828ms | ✅ PASS | 远超预期 (目标<10s) |
+| S3 Tilemap | | | | | 待 S1 确认后启动 |
 
 ---
 
