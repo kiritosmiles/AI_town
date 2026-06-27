@@ -126,17 +126,20 @@ func _print_stats() -> void:
 		printerr("[ERROR] No test results collected.")
 		return
 
-	var pct = func(p):
-		return latencies[int(float(n) * p / 100.0)]
+	# 直接计算百分位索引，不用 lambda（GDScript 4.x 不支持局部 lambda 直接调用）
+	var p50_idx = int(float(n) * 50.0 / 100.0)
+	var p95_idx = int(float(n) * 95.0 / 100.0)
+	var p99_idx = int(float(n) * 99.0 / 100.0)
+	var p50_val = latencies[p50_idx]
 
 	print("\n" + "=".repeat(50))
 	print("  Godot ↔ Python HTTP Bridge — Latency Report")
 	print("=".repeat(50))
 	print("  Samples : %d" % n)
 	print("  Min     : %.2f ms" % latencies[0])
-	print("  P50     : %.2f ms" % pct(50))
-	print("  P95     : %.2f ms" % pct(95))
-	print("  P99     : %.2f ms" % pct(99))
+	print("  P50     : %.2f ms" % p50_val)
+	print("  P95     : %.2f ms" % latencies[p95_idx])
+	print("  P99     : %.2f ms" % latencies[p99_idx])
 	print("  Max     : %.2f ms" % latencies[n - 1])
 
 	var avg = 0.0
@@ -146,9 +149,8 @@ func _print_stats() -> void:
 	print("  Mean    : %.2f ms" % avg)
 	print("=".repeat(50))
 
-	var p50 = pct(50)
-	if p50 < 50.0:
-		print("  ✅ SPIKE PASSED: P50 = %.1f ms < 50ms" % p50)
+	if p50_val < 50.0:
+		print("  ✅ SPIKE PASSED: P50 = %.1f ms < 50ms" % p50_val)
 	else:
-		print("  ❌ SPIKE FAILED: P50 = %.1f ms >= 50ms" % p50)
+		print("  ❌ SPIKE FAILED: P50 = %.1f ms >= 50ms" % p50_val)
 	print("=".repeat(50))
