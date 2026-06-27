@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package ai_town;
+
+// Echo service — 用于延迟测试和 Godot↔Python 基础通信验证
+service Echo {
+  // 简单 Ping-Pong，测量往返延迟
+  rpc Ping (PingRequest) returns (PingReply);
+
+  // 带 payload 的 Echo，模拟实际消息大小
+  rpc EchoPayload (EchoPayloadRequest) returns (EchoPayloadReply);
+}
+
+message PingRequest {
+  string message = 1;           // 发送消息
+  int64 client_ts_ns = 2;       // 客户端纳秒时间戳
+}
+
+message PingReply {
+  string message = 1;           // 回显消息
+  int64 client_ts_ns = 2;       // 原路返回客户端时间戳
+  int64 server_ts_ns = 3;       // 服务端接收时的时间戳
+}
+
+// 模拟实际 Agent 通信的 payload 大小
+message EchoPayloadRequest {
+  string payload = 1;           // JSON 序列化的 Agent 请求 (模拟 2-10KB)
+  int64 client_ts_ns = 2;
+  int32 payload_size_bytes = 3; // payload 的实际字节大小
+}
+
+message EchoPayloadReply {
+  string payload = 1;           // 直接返回原 payload
+  int64 client_ts_ns = 2;
+  int64 server_ts_ns = 3;
+  int64 roundtrip_us = 4;       // 服务端计算的往返微秒
+}
