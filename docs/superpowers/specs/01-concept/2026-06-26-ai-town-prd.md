@@ -842,9 +842,11 @@ PRD 中各项设计从竞品分析文档的具体借鉴来源：
 |---|---|---|
 | 设计规格 v1.0 | [2026-06-17-ai-town-design.md](2026-06-17-ai-town-design.md) | 初始技术架构（多人方向，部分内容已过时） |
 | 竞品分析 | [2026-06-26-ai-town-competitive-analysis.md](2026-06-26-ai-town-competitive-analysis.md) | 4 项目详细对比 |
-| 开发全流程 | [2026-06-26-ai-town-development-workflow.md](2026-06-26-ai-town-development-workflow.md) | 6 阶段开发流程 + PRD 下一步行动清单 |
-| README | [README.md](../../README.md) | 项目 README（中文） |
-| README (EN) | [README_EN.md](../../README_EN.md) | Project README (English) |
+| 开发全流程 | [../02-pre-production/2026-06-26-ai-town-development-workflow.md](../02-pre-production/2026-06-26-ai-town-development-workflow.md) | 6 阶段开发流程 + PRD 下一步行动清单 |
+| 预生产行动清单 | [../02-pre-production/2026-06-26-ai-town-action-checklist.md](../02-pre-production/2026-06-26-ai-town-action-checklist.md) | 23 项可追踪任务，含依赖图和进度看板 |
+| 文档目录索引 | [../00-directory-index.md](../00-directory-index.md) | 完整文档目录与导航 |
+| README | [../../../README.md](../../../README.md) | 项目 README（中文） |
+| README (EN) | [../../../README_EN.md](../../../README_EN.md) | Project README (English) |
 
 ---
 

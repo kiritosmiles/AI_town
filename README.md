@@ -6,7 +6,7 @@
 |---|---|---|
 | **AI Town** | Godot 4 单机生活模拟游戏 (Steam)。每个角色为独立 LLM Agent (DeepSeekV4-pro)，分层记忆(工作+情景+语义+遗忘曲线)，GraphRAG 五类实体知识图谱(角色/地点/组织/事件/物品)，1000×1000 Tile+Plot 双层地图，实时制(1年≈2天)，NPC C/B/A 三种心跳模式，货币+材料+证书经济，寿命制+子嗣继承+成就积分，NPC宪法+玩家议会立法。预计安装包 500-750MB，源码 8-14 万行。 | 🏗️ Design |
 
-[![Status](https://img.shields.io/badge/status-PRD_Design-7B61FF)](docs/superpowers/specs/2026-06-26-ai-town-prd.md)
+[![Status](https://img.shields.io/badge/status-PRD_Design-7B61FF)](docs/superpowers/specs/01-concept/2026-06-26-ai-town-prd.md)
 [![Godot](https://img.shields.io/badge/Godot-4-478CBF?logo=godot-engine)](https://godotengine.org/)
 [![Python](https://img.shields.io/badge/Python-Agent_服务-3776AB?logo=python)](https://www.python.org/)
 [![Steam](https://img.shields.io/badge/Steam-分发-000000?logo=steam)](https://store.steampowered.com/)
@@ -137,7 +137,7 @@ AI_town/
 │   │   └── learning/       # Tool 学习/技能解锁
 ├── proto/                  # gRPC Protobuf 定义
 ├── docs/                   # 文档
-│   └── superpowers/specs/  # PRD + 竞品分析 + 设计规格 + 开发流程
+│   └── superpowers/specs/  # 按阶段分层 (00-索引/01-概念/02-预生产/03-原型/04-生产/05-打磨/06-发行)
 └── README.md
 ```
 
@@ -145,12 +145,14 @@ AI_town/
 
 ## 📖 文档
 
-| 文档 | 说明 |
-|---|---|
-| [PRD (产品需求文档)](docs/superpowers/specs/2026-06-26-ai-town-prd.md) | 三画像、P0-P3 功能矩阵 (56 项)、验收标准 (37 条)、技术架构、项目规模预估、竞品借鉴追溯 |
-| [竞品分析](docs/superpowers/specs/2026-06-26-ai-town-competitive-analysis.md) | 4 项目深度对比 (AI Town a16z / Generative Agents / AIvilization / Project Sid)，16 维度横向矩阵 |
-| [开发全流程](docs/superpowers/specs/2026-06-26-ai-town-development-workflow.md) | 6 阶段流程 (概念→预生产→原型→生产→打磨→发行)，PRD 下一步行动清单，所需资料清单 |
-| [设计规格 v1.0](docs/superpowers/specs/2026-06-17-ai-town-design.md) | 初始设计规格（部分内容已由 PRD 更新） |
+| 阶段 | 文档 | 说明 |
+|---|---|---|
+| 🟢 概念 | [PRD (产品需求文档)](docs/superpowers/specs/01-concept/2026-06-26-ai-town-prd.md) | 三画像、P0-P3 功能矩阵 (56 项)、验收标准 (37 条)、技术架构、项目规模预估、竞品借鉴追溯 |
+| 🟢 概念 | [竞品分析](docs/superpowers/specs/01-concept/2026-06-26-ai-town-competitive-analysis.md) | 4 项目深度对比 (AI Town a16z / Generative Agents / AIvilization / Project Sid)，16 维度横向矩阵 |
+| 🟢 概念 | [设计规格 v1.0](docs/superpowers/specs/01-concept/2026-06-17-ai-town-design.md) | 初始设计规格（部分内容已由 PRD 更新） |
+| 🟡 预生产 | [开发全流程](docs/superpowers/specs/02-pre-production/2026-06-26-ai-town-development-workflow.md) | 6 阶段流程 (概念→预生产→原型→生产→打磨→发行) |
+| 🟡 预生产 | [行动清单](docs/superpowers/specs/02-pre-production/2026-06-26-ai-town-action-checklist.md) | 23 项可追踪任务，含依赖图和进度看板 |
+| ⬜ 全部 | [目录索引](docs/superpowers/specs/00-directory-index.md) | 完整文档目录与导航 |
 
 ---
 

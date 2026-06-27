@@ -6,7 +6,7 @@
 |---|---|---|
 | **AI Town** | Godot 4 single-player life-sim (Steam). Independent LLM agents (DeepSeekV4-pro), layered memory (working+episodic+semantic+forgetting curve), GraphRAG 5-entity knowledge graph (character/location/organization/event/item), 1000×1000 tile+plot dual-layer map, real-time (1yr≈2days), NPC heartbeat modes (C/B/A), currency+materials+certificates economy, lifespan+heir inheritance+achievement score, NPC constitution+player parliament. Est. install 500-750MB, ~80k-145k LOC. | 🏗️ Design |
 
-[![Status](https://img.shields.io/badge/status-PRD_Design-7B61FF)](docs/superpowers/specs/2026-06-26-ai-town-prd.md)
+[![Status](https://img.shields.io/badge/status-PRD_Design-7B61FF)](docs/superpowers/specs/01-concept/2026-06-26-ai-town-prd.md)
 [![Godot](https://img.shields.io/badge/Godot-4-478CBF?logo=godot-engine)](https://godotengine.org/)
 [![Python](https://img.shields.io/badge/Python-Agent_Service-3776AB?logo=python)](https://www.python.org/)
 [![Steam](https://img.shields.io/badge/Steam-Distribution-000000?logo=steam)](https://store.steampowered.com/)
@@ -145,12 +145,14 @@ AI_town/
 
 ## 📖 Documentation
 
-| Document | Description |
-|---|---|
-| [PRD](docs/superpowers/specs/2026-06-26-ai-town-prd.md) | 3 personas, P0-P3 feature matrix (56 items), acceptance criteria (37 items), architecture, project scale, competitive borrowing trace |
-| [Competitive Analysis](docs/superpowers/specs/2026-06-26-ai-town-competitive-analysis.md) | 4-project deep comparison (AI Town a16z / Generative Agents / AIvilization / Project Sid), 16-dimension matrix |
-| [Development Workflow](docs/superpowers/specs/2026-06-26-ai-town-development-workflow.md) | 6-stage process (Concept→Pre-Prod→Proto→Prod→Polish→Launch), PRD next-step checklist, required materials |
-| [Design Spec v1.0](docs/superpowers/specs/2026-06-17-ai-town-design.md) | Original design spec (partially superseded by PRD) |
+| Phase | Document | Description |
+|---|---|---|
+| 🟢 Concept | [PRD](docs/superpowers/specs/01-concept/2026-06-26-ai-town-prd.md) | 3 personas, P0-P3 feature matrix (56 items), acceptance criteria (37 items), architecture, project scale, competitive borrowing trace |
+| 🟢 Concept | [Competitive Analysis](docs/superpowers/specs/01-concept/2026-06-26-ai-town-competitive-analysis.md) | 4-project deep comparison (AI Town a16z / Generative Agents / AIvilization / Project Sid), 16-dimension matrix |
+| 🟢 Concept | [Design Spec v1.0](docs/superpowers/specs/01-concept/2026-06-17-ai-town-design.md) | Original design spec (partially superseded by PRD) |
+| 🟡 Pre-Prod | [Development Workflow](docs/superpowers/specs/02-pre-production/2026-06-26-ai-town-development-workflow.md) | 6-stage process (Concept→Pre-Prod→Proto→Prod→Polish→Launch) |
+| 🟡 Pre-Prod | [Action Checklist](docs/superpowers/specs/02-pre-production/2026-06-26-ai-town-action-checklist.md) | 23 trackable tasks with dependency graph and progress board |
+| ⬜ All | [Directory Index](docs/superpowers/specs/00-directory-index.md) | Full document directory and navigation |
 
 ---
 
