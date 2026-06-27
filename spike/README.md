@@ -62,7 +62,7 @@ python test_latency.py
 | Spike | 日期 | P50 | P95 | 结论 | 备注 |
 |---|---|---|---|---|---|
 | S1 gRPC | 2026-06-27 | 0.3ms | — | ✅ PASS | 远超预期 (目标<50ms) |
-| S1 HTTP Bridge | — | — | — | — | 等 Godot 实测 |
+| S1 HTTP Bridge | 2026-06-28 | 30.3ms | 48.3ms | ✅ PASS | Godot→Python GET /echo, 127.0.0.1 |
 | S2 DeepSeek | 2026-06-27 | 1449ms | 3828ms | ✅ PASS | 远超预期 (目标<10s) |
 | S3 Tilemap | | | | | 待 S1 确认后启动 |
 
