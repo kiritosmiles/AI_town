@@ -24,6 +24,14 @@ import sys
 class BridgeHandler(BaseHTTPRequestHandler):
     """处理 Godot 的 HTTP 请求"""
 
+    def do_GET(self):
+        if self.path == "/ping":
+            self._handle_ping()
+        else:
+            self.send_response(404)
+            self.end_headers()
+            self.wfile.write(b'{"error": "not found"}')
+
     def do_POST(self):
         if self.path == "/echo":
             self._handle_echo()
