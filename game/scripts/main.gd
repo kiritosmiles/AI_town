@@ -126,7 +126,7 @@ func _print_stats() -> void:
 		printerr("[ERROR] No test results collected.")
 		return
 
-	func pct(p):
+	var pct = func(p):
 		return latencies[int(float(n) * p / 100.0)]
 
 	print("\n" + "=".repeat(50))
