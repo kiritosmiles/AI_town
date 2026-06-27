@@ -77,7 +77,7 @@ class BridgeHandler(BaseHTTPRequestHandler):
 
 
 def serve(port: int = 8080):
-    server = HTTPServer(("localhost", port), BridgeHandler)
+    server = HTTPServer(("0.0.0.0", port), BridgeHandler)
     print(f"[HTTP Bridge] Listening on http://localhost:{port}")
     print(f"[HTTP Bridge] GET /ping | GET /echo?msg=N&ts=NS | POST /echo")
     print(f"[HTTP Bridge] Press Ctrl+C to stop")

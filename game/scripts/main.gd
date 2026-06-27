@@ -7,7 +7,7 @@ S1 Spike — Godot 4 GDScript: HTTP ↔ Python Bridge 延迟测试
 
 extends Node2D
 
-const PYTHON_BRIDGE_URL = "http://localhost:8080"
+const PYTHON_BRIDGE_URL = "http://127.0.0.1:8080"
 const TEST_COUNT = 50
 
 var http_request: HTTPRequest
