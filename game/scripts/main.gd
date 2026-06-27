@@ -20,6 +20,7 @@ var http_request: HTTPRequest
 var latencies: Array[float] = []
 var test_index: int = 0
 var test_done: bool = false
+var ping_done: bool = false
 
 
 func _ready() -> void:
@@ -44,7 +45,6 @@ func _ping_check() -> void:
 	var err = http_request.request(PYTHON_BRIDGE_URL + "/ping")
 	if err != OK:
 		printerr("[ERROR] Cannot send ping request: ", err)
-		return
 
 
 func _start_tests() -> void:
@@ -62,13 +62,11 @@ func _send_next_test() -> void:
 	var payload = {
 		"message": "test_%d" % test_index,
 		"client_ts_ns": Time.get_ticks_usec() * 1000,  # usec → ns
-		"payload": "x".repeat(512),  # 512 字节 payload
+		"payload": "x".repeat(512),
 	}
 
 	var body = JSON.stringify(payload)
 	var headers = ["Content-Type: application/json"]
-
-	# 记录发送时间（用于 RTT 计算）
 	var send_ts = Time.get_ticks_usec()
 
 	var err = http_request.request(
@@ -83,7 +81,6 @@ func _send_next_test() -> void:
 		test_index += 1
 		_send_next_test()
 	else:
-		# 存储发送时间，等回调中计算 RTT
 		http_request.set_meta("send_ts_us", send_ts)
 
 
@@ -95,11 +92,11 @@ func _on_request_completed(
 
 	var recv_ts = Time.get_ticks_usec()
 
-	# /ping 响应
-	if test_index == 0 and latencies.is_empty():
+	# /ping 响应 — 用 flag 区分，不与 echo 混用
+	if not ping_done:
+		ping_done = true
 		if response_code == 200:
 			print("[OK] Bridge connected!")
-			# 稍微等一下让连接稳定
 			await get_tree().create_timer(0.1).timeout
 			_start_tests()
 		else:
@@ -108,7 +105,7 @@ func _on_request_completed(
 
 	# /echo 响应
 	var send_ts = http_request.get_meta("send_ts_us", recv_ts)
-	var rtt_ms = float(recv_ts - send_ts) / 1000.0  # usec → ms
+	var rtt_ms = float(recv_ts - send_ts) / 1000.0
 	latencies.append(rtt_ms)
 
 	if test_index % 10 == 9:
@@ -126,7 +123,6 @@ func _print_stats() -> void:
 		printerr("[ERROR] No test results collected.")
 		return
 
-	# 直接计算百分位索引，不用 lambda（GDScript 4.x 不支持局部 lambda 直接调用）
 	var p50_idx = int(float(n) * 50.0 / 100.0)
 	var p95_idx = int(float(n) * 95.0 / 100.0)
 	var p99_idx = int(float(n) * 99.0 / 100.0)
