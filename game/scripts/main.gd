@@ -3,16 +3,10 @@ S1 Spike — Godot 4 GDScript: HTTP ↔ Python Bridge 延迟测试
 
 启动 Python HTTP Bridge 后再运行此场景:
     cd spike/s1-grpc && python http_bridge.py
-
-场景运行后会:
-  1. 自动发送 50 次 /echo POST 请求
-  2. 测量每次往返延迟
-  3. 在控制台输出 P50/P95/P99 统计
 """
 
 extends Node2D
 
-# 配置
 const PYTHON_BRIDGE_URL = "http://localhost:8080"
 const TEST_COUNT = 50
 
@@ -31,12 +25,10 @@ func _ready() -> void:
 	print("  Test count   : ", TEST_COUNT)
 	print("=".repeat(50))
 
-	# 创建 HTTPRequest 节点
 	http_request = HTTPRequest.new()
 	add_child(http_request)
 	http_request.request_completed.connect(_on_request_completed)
 
-	# 先 ping 一次确认连通
 	_ping_check()
 
 
@@ -59,22 +51,13 @@ func _send_next_test() -> void:
 		_print_stats()
 		return
 
-	var payload = {
-		"message": "test_%d" % test_index,
-		"client_ts_ns": Time.get_ticks_usec() * 1000,  # usec → ns
-		"payload": "x".repeat(512),
-	}
+	var ts_ns = Time.get_ticks_usec() * 1000
 
-	var body = JSON.stringify(payload)
-	var headers = ["Content-Type: application/json"]
+	# GET /echo?msg=N&ts=NS — 纯 GET，避开 Godot POST body 的解析延迟
+	var url = PYTHON_BRIDGE_URL + "/echo?msg=test_%d&ts=%d" % [test_index, ts_ns]
+
 	var send_ts = Time.get_ticks_usec()
-
-	var err = http_request.request(
-		PYTHON_BRIDGE_URL + "/echo",
-		headers,
-		HTTPClient.METHOD_POST,
-		body
-	)
+	var err = http_request.request(url)
 
 	if err != OK:
 		printerr("[ERROR] Request %d failed: %d" % [test_index, err])
@@ -92,7 +75,7 @@ func _on_request_completed(
 
 	var recv_ts = Time.get_ticks_usec()
 
-	# /ping 响应 — 用 flag 区分，不与 echo 混用
+	# /ping 响应
 	if not ping_done:
 		ping_done = true
 		if response_code == 200:
