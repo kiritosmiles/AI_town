@@ -1,0 +1,21 @@
+# Godot
+game/.godot/
+*.uid
+*.translation
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+spike/s1-grpc/echo_pb2.py
+spike/s1-grpc/echo_pb2_grpc.py
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
