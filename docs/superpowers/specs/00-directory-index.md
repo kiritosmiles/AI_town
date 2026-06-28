@@ -18,8 +18,11 @@ docs/superpowers/specs/
 │
 ├── 02-pre-production/                        [2] 预生产阶段 🔲 当前
 │   ├── 2026-06-26-ai-town-development-workflow.md  开发全流程 (6 阶段)
-│   ├── 2026-06-26-ai-town-action-checklist.md      预生产行动清单 (23 项, 进行中 4%)
-│   └── 2026-06-27-tile-spec-decision.md            Tile 规格决策记录 ✅
+│   ├── 2026-06-26-ai-town-action-checklist.md      预生产行动清单 (23 项, 13%)
+│   ├── 2026-06-27-tile-spec-decision.md            Tile 规格决策记录 ✅
+│   ├── 2026-06-28-agent-system-prompt.md           Agent System Prompt 模板 🟡
+│   ├── 2026-06-28-tool-catalog.md                  Tool 完整清单 (28+ 个) 🟡
+│   └── 2026-06-28-graphrag-schema.md               GraphRAG Schema 定义 🟡
 │
 ├── 03-prototype/                             [3] 原型验证阶段 🔲 待进入
 ├── 04-production/                            [4] 正式生产阶段 🔲
@@ -40,6 +43,7 @@ docs/superpowers/specs/
 | 理解整体开发节奏 | [开发全流程](02-pre-production/2026-06-26-ai-town-development-workflow.md) | [行动清单 §4 依赖图](02-pre-production/2026-06-26-ai-town-action-checklist.md#4-依赖关系图) |
 | 看 Tile/分辨率决策 | [Tile 规格决策](02-pre-production/2026-06-27-tile-spec-decision.md) | — |
 | 看原技术方案 | [设计规格 v1.0](01-concept/2026-06-17-ai-town-design.md) | — |
+| 看 Agent 行为设计 | [System Prompt 模板](02-pre-production/2026-06-28-agent-system-prompt.md) | [Tool 清单](02-pre-production/2026-06-28-tool-catalog.md) → [GraphRAG Schema](02-pre-production/2026-06-28-graphrag-schema.md) |
 | 美术方向参考 | [美术参考指南](../../references/art-references/README.md) | — |
 
 ---
